@@ -139,7 +139,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\NetWorkConnection.cs" />
+    <Compile Include="Data\NetworkConnection.cs" />
     <Compile Include="Data\SQLiteAndroid.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

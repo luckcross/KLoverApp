@@ -26,6 +26,7 @@ namespace KLoversApp.Views
             lbl_Password.TextColor = Constants.MainTextColor;
             activitySpinner.IsVisible = false;
             loginIcon.HeightRequest = Constants.LoginIconHeight;
+            App.StartCheckIfInternet(lblNoInternet, this);
 
             entry_UserName.Completed += (s, e) => entry_Password.Focus();
             entry_Password.Completed += (s, e) => SignInProcedureAsync(s, e);

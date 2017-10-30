@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace KLoversApp
 {
@@ -16,8 +17,9 @@ namespace KLoversApp
         private static RestService restService;
         private static Label labelScreen;
         private static bool hasInternet;
+        private static bool noInterShow;
         private static Page currentPage;
-        //private static Timer timer;
+        private static Timer timer;
 
         public App()
         {
@@ -89,6 +91,78 @@ namespace KLoversApp
             label.IsVisible = false;
             hasInternet = true;
             currentPage = page;
+            if (timer == null)
+            {
+                timer = new Timer("InternetCheck", (e) =>
+                    {
+                        CheckIfInternetOverTime();
+                    }, null, 10, (int)TimeSpan.FromSeconds(3).TotalMilliseconds);
+            }
+        }
+
+        private static void CheckIfInternetOverTime()
+        {
+            INetworkConnection networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+            
+            if (!networkConnection.IsConnected)
+            {
+                Device.BeginInvokeOnMainThread(async() =>
+                {
+                    if (hasInternet)
+                    {
+                        if (!noInterShow)
+                        {
+                            hasInternet = false;
+                            labelScreen.IsVisible = true;
+                            await ShowDisplayAlertAsync();
+                        }
+                    }
+                });
+            }
+            else
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    hasInternet = true;
+                    labelScreen.IsVisible = false;
+                });
+            }
+        }
+
+        public static async Task<bool> CheckIfInternetAsync()
+        {
+            INetworkConnection networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+
+            if (!networkConnection.IsConnected)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static async Task<bool> CheckIfInternetAlertAsync()
+        {
+            INetworkConnection networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+
+            if (!networkConnection.IsConnected)
+            {
+                if (!noInterShow)
+                {
+                    await ShowDisplayAlertAsync();
+                }
+                return false;
+            }
+            return true;
+        }
+
+        private static async Task ShowDisplayAlertAsync()
+        {
+            noInterShow = false;
+            await currentPage.DisplayAlert("Internet", "Device has no internet, please reconnect", "Oke");
+            noInterShow = false;
         }
     }
 }
