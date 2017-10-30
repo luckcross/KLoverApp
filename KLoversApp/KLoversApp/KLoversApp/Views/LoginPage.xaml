@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KLoversApp.Views.LoginPage"
+             Title="Login">
+    <StackLayout x:Name="masterLayout">
+
+        <StackLayout x:Name="logoStack" VerticalOptions="FillAndExpand">
+            <Image x:Name="loginIcon" Source="LoginIcon.png" Margin="10,80,10,0" />
+        </StackLayout>
+
+        <StackLayout x:Name="loginEntriesStack" VerticalOptions="StartAndExpand">
+            <StackLayout.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+                </OnIdiom>
+            </StackLayout.Padding>
+
+            <ActivityIndicator x:Name="activitySpinner" Color="Red" IsRunning="True" />
+
+            <Label x:Name="lbl_Username" Text="Username" />
+            <Entry x:Name="entry_UserName" Placeholder="Username" />
+            <Label x:Name="lbl_Password" Text="Password" />
+            <Entry x:Name="entry_Password" Placeholder="Password" />
+            <Button x:Name="btn_SignIn" Text="Sign In" Clicked="SignInProcedureAsync" />
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
