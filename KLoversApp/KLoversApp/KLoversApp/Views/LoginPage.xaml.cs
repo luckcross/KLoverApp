@@ -38,7 +38,7 @@ namespace KLoversApp.Views
             User user = new User(entry_UserName.Text, entry_Password.Text);
             if (user.CheckInformation())
             {
-                DisplayAlert("Login", "Login Success", "Oke");
+                await DisplayAlert("Login", "Login Success", "Oke");
                 //Token tokenResult = await App.RestService.Login(user);
                 var tokenResult = new Token();
 
@@ -50,17 +50,17 @@ namespace KLoversApp.Views
 
                     if (Device.OS == TargetPlatform.Android)
                     {
-                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                        Application.Current.MainPage = new MasterDetail();
                     }
                     else if (Device.OS == TargetPlatform.iOS)
                     {
-                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                        await Navigation.PushModalAsync(new MasterDetail());
                     }
                 }
             }
             else
             {
-                DisplayAlert("Login", "Login Not Correct, empty username or password.", "Ok");
+                await DisplayAlert("Login", "Login Not Correct, empty username or password.", "Ok");
             }
 
         }
