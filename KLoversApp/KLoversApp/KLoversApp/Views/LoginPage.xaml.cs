@@ -1,4 +1,5 @@
 ﻿using KLoversApp.Models;
+using KLoversApp.Views.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,10 +39,23 @@ namespace KLoversApp.Views
             if (user.CheckInformation())
             {
                 DisplayAlert("Login", "Login Success", "Oke");
-                Token result = await App.RestService.Login(user);
-                if (result.AcessToken != null)
+                //Token tokenResult = await App.RestService.Login(user);
+                var tokenResult = new Token();
+
+                //if (tokenResult.AcessToken != null)
+                if (tokenResult != null)
                 {
-                    App.UserDatabase.SaveUser(user);
+                    //App.UserDatabase.SaveUser(user);
+                    //App.TokenDatabase.SaveToken(tokenResult);
+
+                    if (Device.OS == TargetPlatform.Android)
+                    {
+                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                    }
+                    else if (Device.OS == TargetPlatform.iOS)
+                    {
+                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                    }
                 }
             }
             else

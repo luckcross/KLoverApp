@@ -47,3 +47,6 @@ D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.App.
 D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.Views.LoginPage.xaml.g.cs
 D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.dll
 D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.pdb
+D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.csprojResolveAssemblyReference.cache
+D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.Views.Menu.Dashboard.xaml.g.cs
+D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.Views.DetailViews.InfoScreen1.xaml.g.cs
