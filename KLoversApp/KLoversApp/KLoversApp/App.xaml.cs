@@ -93,10 +93,11 @@ namespace KLoversApp
             currentPage = page;
             if (timer == null)
             {
-                timer = new Timer("InternetCheck", (e) =>
+                timer = new Timer((e) =>
                     {
                         CheckIfInternetOverTime();
                     }, null, 10, (int)TimeSpan.FromSeconds(3).TotalMilliseconds);
+
             }
         }
 
@@ -134,12 +135,7 @@ namespace KLoversApp
         {
             INetworkConnection networkConnection = DependencyService.Get<INetworkConnection>();
             networkConnection.CheckNetworkConnection();
-
-            if (!networkConnection.IsConnected)
-            {
-                return false;
-            }
-            return true;
+            return networkConnection.IsConnected;
         }
 
         public static async Task<bool> CheckIfInternetAlertAsync()
