@@ -52,3 +52,4 @@ D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.View
 D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.Views.Menu.MasterDetail.xaml.g.cs
 D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.Views.Menu.MasterPage.xaml.g.cs
 D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.Views.DetailViews.InfoScreen2.xaml.g.cs
+D:\TIC\git\KLoversApp\KLoversApp\KLoversApp\KLoversApp\obj\Debug\KLoversApp.Views.DetailViews.SettingsViews.SettingsScreen.xaml.g.cs

@@ -38,13 +38,25 @@ namespace KLoversApp.Views
             User user = new User(entry_UserName.Text, entry_Password.Text);
             if (user.CheckInformation())
             {
-                await DisplayAlert("Login", "Login Success", "Oke");
+                activitySpinner.IsVisible = true;
+
+                // TODO: Usar este quando o web api estiver funcionando retornando um token
                 //Token tokenResult = await App.RestService.Login(user);
-                var tokenResult = new Token();
+                Token tokenResult = new Token();
+                await DisplayAlert("Login", "Login Success", "Oke");
+
+                if (App.SettingsDatabase.GetSettings() == null)
+                {
+                    Settings settings = new Settings();
+                    App.SettingsDatabase.SaveSettings(settings);
+                }
+                
 
                 //if (tokenResult.AcessToken != null)
                 if (tokenResult != null)
                 {
+                    activitySpinner.IsVisible = false;
+                    // TODO: Usar este quando o web api estiver funcionando
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(tokenResult);
 
@@ -61,6 +73,7 @@ namespace KLoversApp.Views
             else
             {
                 await DisplayAlert("Login", "Login Not Correct, empty username or password.", "Ok");
+                activitySpinner.IsVisible = false;
             }
 
         }

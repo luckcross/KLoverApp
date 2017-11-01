@@ -15,6 +15,8 @@ namespace KLoversApp
     {
         private static TokenDatabaseController tokenDatabase;
         private static UserDatabaseController userDatabase;
+        private static SettingsDatabaseController settingsDatabase;
+
         private static RestService restService;
         private static Label labelScreen;
         private static bool hasInternet;
@@ -52,7 +54,6 @@ namespace KLoversApp
                 {
                     userDatabase = new UserDatabaseController();
                 }
-
                 return userDatabase;
             }
         }
@@ -65,8 +66,19 @@ namespace KLoversApp
                 {
                     tokenDatabase = new TokenDatabaseController();
                 }
-
                 return tokenDatabase;
+            }
+        }
+
+        public static SettingsDatabaseController SettingsDatabase
+        {
+            get
+            {
+                if (settingsDatabase == null)
+                {
+                    settingsDatabase = new SettingsDatabaseController();
+                }
+                return settingsDatabase;
             }
         }
 
@@ -78,7 +90,6 @@ namespace KLoversApp
                 {
                     restService = new RestService();
                 }
-
                 return restService;
             }
         }

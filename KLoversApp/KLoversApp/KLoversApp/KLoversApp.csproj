@@ -41,6 +41,7 @@
     <Compile Include="Data\INetworkConnection.cs" />
     <Compile Include="Data\ISQLite.cs" />
     <Compile Include="Data\RestService.cs" />
+    <Compile Include="Data\SettingsDatabaseController.cs" />
     <Compile Include="Data\TokenDatabaseController.cs" />
     <Compile Include="Data\UserDataBaseController.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -48,6 +49,7 @@
     </Compile>
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\MasterMenuItem.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,6 +59,9 @@
     </Compile>
     <Compile Include="Views\DetailViews\InfoScreen2.xaml.cs">
       <DependentUpon>InfoScreen2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\SettingsViews\SettingsScreen.xaml.cs">
+      <DependentUpon>SettingsScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -133,6 +138,13 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\DetailViews\InfoScreen2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DetailViews\SettingsViews\SettingsScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

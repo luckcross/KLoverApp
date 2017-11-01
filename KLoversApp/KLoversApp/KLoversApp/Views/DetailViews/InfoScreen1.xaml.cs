@@ -15,6 +15,12 @@ namespace KLoversApp.Views.DetailViews
         public InfoScreen1()
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            activitySpinner.IsVisible = true;
         }
     }
 }
