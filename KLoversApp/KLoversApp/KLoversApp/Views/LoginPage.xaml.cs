@@ -45,7 +45,11 @@ namespace KLoversApp.Views
                 Token tokenResult = new Token();
                 await DisplayAlert("Login", "Login Success", "Oke");
 
-                
+                if (App.SettingsDatabase.GetSettings() == null)
+                {
+                    Settings settings = new Settings();
+                    App.SettingsDatabase.SaveSettings(settings);
+                }
                 
 
                 //if (tokenResult.AcessToken != null)

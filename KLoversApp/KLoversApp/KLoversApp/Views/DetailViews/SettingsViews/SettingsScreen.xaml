@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KLoversApp.Views.DetailViews.SettingsViews.SettingsScreen">
+    <StackLayout Orientation="Vertical">
+        <StackLayout>
+            <Label x:Name="lblNoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+        </StackLayout>
+
+        <StackLayout x:Name="mainLayout">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.iOS>
+                        10,20,10,20
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>
+                        10,0,10,20
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </StackLayout.Padding>
+        </StackLayout>
+        
+    </StackLayout>
+</ContentPage>

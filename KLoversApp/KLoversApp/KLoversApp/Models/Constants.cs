@@ -20,5 +20,7 @@ namespace KLoversApp.Models
         public static string LoginUril = "http://localhost:50340/api/AppUser/AddAppUser/";
 
         public static string NoInternetText = "No Internet, please reconnect.";
+
+        public static string SettingsScreenTitle = "Settings";
     }
 }
