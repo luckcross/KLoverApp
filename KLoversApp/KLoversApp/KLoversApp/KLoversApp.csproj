@@ -48,7 +48,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Constants.cs" />
-    <Compile Include="Models\MasterMenuItem.cs" />
+    <Compile Include="Models\UI\MasterMenuItem.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
@@ -66,11 +66,11 @@
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Menu\MasterDetail.xaml.cs">
-      <DependentUpon>MasterDetail.xaml</DependentUpon>
+    <Compile Include="Views\Menu\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Menu\MasterPage.xaml.cs">
-      <DependentUpon>MasterPage.xaml</DependentUpon>
+    <Compile Include="Views\Menu\MainDetail.xaml.cs">
+      <DependentUpon>MainDetail.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -125,13 +125,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Menu\MasterDetail.xaml">
+    <EmbeddedResource Include="Views\Menu\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Menu\MasterPage.xaml">
+    <EmbeddedResource Include="Views\Menu\MainDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

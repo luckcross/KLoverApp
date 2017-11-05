@@ -1,4 +1,5 @@
-﻿using KLoversApp.Models;
+﻿using KLoversApp;
+using KLoversApp.Models.UI;
 using KLoversApp.Views.DetailViews;
 using KLoversApp.Views.DetailViews.SettingsViews;
 using System;
@@ -13,12 +14,12 @@ using Xamarin.Forms.Xaml;
 namespace KLoversApp.Views.Menu
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterPage : ContentPage
+    public partial class MainDetail : ContentPage
     {
         public ListView ListView { get { return listView;} }
         public List<MasterMenuItem> items;
 
-        public MasterPage()
+        public MainDetail()
         {
             InitializeComponent();
             SetItems();

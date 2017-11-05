@@ -1,4 +1,4 @@
-﻿using KLoversApp.Models;
+﻿using KLoversApp.Models.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace KLoversApp.Views.Menu
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterDetail : MasterDetailPage
+    public partial class MainPage : MasterDetailPage
     {
-        public MasterDetail()
+        public MainPage()
         {
             InitializeComponent();
             masterPage.ListView.ItemSelected += OnItemSelected;
@@ -21,7 +21,7 @@ namespace KLoversApp.Views.Menu
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as MasterMenuItem;
+            MasterMenuItem item = e.SelectedItem as MasterMenuItem;
             if (item != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));

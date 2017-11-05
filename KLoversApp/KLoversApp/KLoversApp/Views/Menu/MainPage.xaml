@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:KLoversApp.Views.Menu;assembly=KLoversApp"
              xmlns:detailviews="clr-namespace:KLoversApp.Views.DetailViews;assembly=KLoversApp"
-             x:Class="KLoversApp.Views.Menu.MasterDetail">
+             x:Class="KLoversApp.Views.Menu.MainPage">
 
     <MasterDetailPage.Master>
-        <local:MasterPage  x:Name="masterPage"/>
+        <local:MainDetail x:Name="masterPage"/>
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
@@ -16,5 +16,6 @@
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
+    
     
 </MasterDetailPage>
