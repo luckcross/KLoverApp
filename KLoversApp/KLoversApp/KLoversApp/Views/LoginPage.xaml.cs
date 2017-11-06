@@ -30,10 +30,10 @@ namespace KLoversApp.Views
             App.StartCheckIfInternet(lblNoInternet, this);
 
             entry_UserName.Completed += (s, e) => entry_Password.Focus();
-            entry_Password.Completed += (s, e) => SignInProcedureAsync(s, e);
+            entry_Password.Completed += (s, e) => SignInAsync(s, e);
         }
 
-        private async Task SignInProcedureAsync(object sender, EventArgs e)
+        private async Task SignInAsync(object sender, EventArgs e)
         {
             User user = new User(entry_UserName.Text, entry_Password.Text);
             if (user.CheckInformation())
@@ -62,11 +62,11 @@ namespace KLoversApp.Views
 
                     if (Device.OS == TargetPlatform.Android)
                     {
-                        Application.Current.MainPage = new MasterDetail();
+                        Application.Current.MainPage = new Menu.MainPage();
                     }
                     else if (Device.OS == TargetPlatform.iOS)
                     {
-                        await Navigation.PushModalAsync(new MasterDetail());
+                        await Navigation.PushModalAsync(new Menu.MainPage());
                     }
                 }
             }
