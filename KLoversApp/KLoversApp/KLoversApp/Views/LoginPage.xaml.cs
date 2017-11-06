@@ -30,7 +30,7 @@ namespace KLoversApp.Views
             App.StartCheckIfInternet(lblNoInternet, this);
 
             entry_UserName.Completed += (s, e) => entry_Password.Focus();
-            entry_Password.Completed += (s, e) => SignInAsync(s, e);
+            //entry_Password.Completed += (s, e) => SignInAsync(s, e);
         }
 
         private async Task SignInAsync(object sender, EventArgs e)
