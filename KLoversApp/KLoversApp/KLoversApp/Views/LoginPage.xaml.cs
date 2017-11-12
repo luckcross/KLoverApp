@@ -25,12 +25,13 @@ namespace KLoversApp.Views
             BackgroundColor = Constants.BackgroundColor;
             lbl_Username.TextColor = Constants.MainTextColor;
             lbl_Password.TextColor = Constants.MainTextColor;
-            activitySpinner.IsVisible = false;
-            loginIcon.HeightRequest = Constants.LoginIconHeight;
-            App.StartCheckIfInternet(lblNoInternet, this);
+            act_Spinner.IsVisible = false;
+            img_loginIcon.HeightRequest = Constants.LoginIconHeight;
+            App.StartCheckIfInternet(lbl_NoInternet, this);
 
             entry_UserName.Completed += (s, e) => entry_Password.Focus();
             //entry_Password.Completed += (s, e) => SignInAsync(s, e);
+            btn_SignIn.Clicked += async (s, e) => await SignInAsync(s, e);
         }
 
         private async Task SignInAsync(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace KLoversApp.Views
             User user = new User(entry_UserName.Text, entry_Password.Text);
             if (user.CheckInformation())
             {
-                activitySpinner.IsVisible = true;
+                act_Spinner.IsVisible = true;
 
                 // TODO: Usar este quando o web api estiver funcionando retornando um token
                 //Token tokenResult = await App.RestService.Login(user);
@@ -55,7 +56,7 @@ namespace KLoversApp.Views
                 //if (tokenResult.AcessToken != null)
                 if (tokenResult != null)
                 {
-                    activitySpinner.IsVisible = false;
+                    act_Spinner.IsVisible = false;
                     // TODO: Usar este quando o web api estiver funcionando
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(tokenResult);
@@ -73,7 +74,7 @@ namespace KLoversApp.Views
             else
             {
                 await DisplayAlert("Login", "Login Not Correct, empty username or password.", "Ok");
-                activitySpinner.IsVisible = false;
+                act_Spinner.IsVisible = false;
             }
 
         }

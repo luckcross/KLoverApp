@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KLoversApp.Views.LoginPage"
              Title="Login">
-    <StackLayout x:Name="masterLayout">
+    <StackLayout x:Name="stack_masterLayout">
 
-        <StackLayout x:Name="logoStack" VerticalOptions="FillAndExpand">
-            <Label x:Name="lblNoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
-            <Image x:Name="loginIcon" Source="LoginIcon.png" Margin="10,80,10,0" />
+        <StackLayout x:Name="stack_logo" VerticalOptions="FillAndExpand">
+            <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+            <Image x:Name="img_loginIcon" Source="LoginIcon.png" Margin="10,80,10,0" />
         </StackLayout>
 
-        <StackLayout x:Name="loginEntriesStack" VerticalOptions="StartAndExpand">
+        <StackLayout x:Name="stack_loginEntries" VerticalOptions="StartAndExpand">
             <StackLayout.Padding>
                 <OnIdiom x:TypeArguments="Thickness">
                     <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
@@ -18,13 +18,14 @@
                 </OnIdiom>
             </StackLayout.Padding>
 
-            <ActivityIndicator x:Name="activitySpinner" Color="Red" IsRunning="True" />
+            <ActivityIndicator x:Name="act_Spinner" Color="Red" IsRunning="True" />
 
             <Label x:Name="lbl_Username" Text="Username" />
             <Entry x:Name="entry_UserName" Placeholder="Username" />
             <Label x:Name="lbl_Password" Text="Password" />
             <Entry x:Name="entry_Password" Placeholder="Password" />
-            <Button x:Name="btn_SignIn" Text="Sign In" Clicked="SignInAsync" />
+            <Button x:Name="btn_SignIn" Text="Sign In" />
+            <!-- <Button x:Name="btn_SignIn" Text="Sign In" Clicked="SignInAsync" /> -->
         </StackLayout>
 
     </StackLayout>
