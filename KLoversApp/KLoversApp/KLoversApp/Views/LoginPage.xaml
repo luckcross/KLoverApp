@@ -26,6 +26,8 @@
             <Entry x:Name="entry_Password" Placeholder="Password" />
             <Button x:Name="btn_SignIn" Text="Sign In" />
             <!-- <Button x:Name="btn_SignIn" Text="Sign In" Clicked="SignInAsync" /> -->
+            <Button x:Name="btn_SignInWithFB" BackgroundColor="Blue" BorderRadius="23" FontAttributes="Bold" HeightRequest="46"  
+                    IsEnabled="True" Text="Login with Facebook" TextColor="White" />
         </StackLayout>
 
     </StackLayout>

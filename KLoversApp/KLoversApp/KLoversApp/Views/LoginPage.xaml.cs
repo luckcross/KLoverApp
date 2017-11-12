@@ -1,5 +1,6 @@
 ﻿using KLoversApp.Models;
 using KLoversApp.Views.Menu;
+using KLoversApp.Views.RendererViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace KLoversApp.Views
             entry_UserName.Completed += (s, e) => entry_Password.Focus();
             //entry_Password.Completed += (s, e) => SignInAsync(s, e);
             btn_SignIn.Clicked += async (s, e) => await SignInAsync(s, e);
+            btn_SignInWithFB.Clicked += async (s, e) => await SigInWithFacebook(s, e);
         }
 
         private async Task SignInAsync(object sender, EventArgs e)
@@ -77,6 +79,12 @@ namespace KLoversApp.Views
                 act_Spinner.IsVisible = false;
             }
 
+        }
+
+        private async Task SigInWithFacebook(object sender, EventArgs e)
+        {
+            //await Navigation.PushAsync(new LoginFacebookView());
+            Application.Current.MainPage = new LoginFacebookView();
         }
     }
 }
