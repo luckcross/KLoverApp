@@ -142,7 +142,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\Facebook\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\DetailViews\SettingsViews\SettingsScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
