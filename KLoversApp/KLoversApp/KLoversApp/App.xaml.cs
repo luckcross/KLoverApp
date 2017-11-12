@@ -8,6 +8,7 @@ using System.Text;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using KLoversApp.Utils;
+using KLoversApp.Models.Facebook;
 
 namespace KLoversApp
 {
@@ -120,7 +121,7 @@ namespace KLoversApp
             
             if (!networkConnection.IsConnected)
             {
-                Device.BeginInvokeOnMainThread(async() =>
+                Xamarin.Forms.Device.BeginInvokeOnMainThread(async() =>
                 {
                     if (hasInternet)
                     {
@@ -135,7 +136,7 @@ namespace KLoversApp
             }
             else
             {
-                Device.BeginInvokeOnMainThread(() =>
+                Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                 {
                     hasInternet = true;
                     labelScreen.IsVisible = false;
@@ -172,5 +173,19 @@ namespace KLoversApp
             await currentPage.DisplayAlert("Internet", "Device has no internet, please reconnect", "Oke");
             noInterShow = false;
         }
+
+        public static Action LoginFacebookFail
+        {
+            get
+            {
+                return new Action(() => Current.MainPage = new NavigationPage(new LoginPage()));
+            }
+        }
+
+        public static void LoginFacebookSuccess(FacebookResponse profile)
+        {
+            Current.MainPage = new Views.Menu.MainPage();
+        }
+
     }
 }
