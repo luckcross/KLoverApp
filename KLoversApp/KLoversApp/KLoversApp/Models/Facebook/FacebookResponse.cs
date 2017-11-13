@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace KLoversApp.Models.Facebook
 {
-    public class DataFacebook
+    public class DataFacebookResp
     {
         [JsonProperty(PropertyName = "is_silhouette")]
         public bool IsSilhouette { get; set; }
@@ -12,13 +12,13 @@ namespace KLoversApp.Models.Facebook
         public string Url { get; set; }
     }
 
-    public class Picture
+    public class PictureResp
     {
         [JsonProperty(PropertyName = "data")]
-        public DataFacebook Data { get; set; }
+        public DataFacebookResp Data { get; set; }
     }
 
-    public class Cover
+    public class CoverResp
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -30,13 +30,13 @@ namespace KLoversApp.Models.Facebook
         public string Source { get; set; }
     }
 
-    public class AgeRange
+    public class AgeRangeResp
     {
         [JsonProperty(PropertyName = "min")]
         public int Min { get; set; }
     }
 
-    public class Device
+    public class DeviceResp
     {
         [JsonProperty(PropertyName = "hardware")]
         public string Hardware { get; set; }
@@ -51,16 +51,16 @@ namespace KLoversApp.Models.Facebook
         public string Name { get; set; }
 
         [JsonProperty(PropertyName = "picture")]
-        public Picture Picture { get; set; }
+        public PictureResp Picture { get; set; }
 
         [JsonProperty(PropertyName = "cover")]
-        public Cover Cover { get; set; }
+        public CoverResp Cover { get; set; }
 
         [JsonProperty(PropertyName = "age_range")]
-        public AgeRange AgeRange { get; set; }
+        public AgeRangeResp AgeRange { get; set; }
 
         [JsonProperty(PropertyName = "devices")]
-        public List<Device> Devices { get; set; }
+        public List<DeviceResp> Devices { get; set; }
 
         [JsonProperty(PropertyName = "gender")]
         public string Gender { get; set; }

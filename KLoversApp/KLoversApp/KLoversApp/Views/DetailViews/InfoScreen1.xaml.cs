@@ -21,6 +21,15 @@ namespace KLoversApp.Views.DetailViews
         private void Init()
         {
             activitySpinner.IsVisible = true;
+
+            lbl_teste.Text = App.facebookResponse.FirstName
+                + " -- " + App.facebookResponse.Gender
+                + " -- " + App.facebookResponse.Cover.Id
+                + " -- " + App.facebookResponse.Cover.OffsetY
+                + " -- " + App.facebookResponse.Devices
+                + " -- " + App.facebookResponse.AgeRange
+                + " -- " + App.facebookResponse.Name
+                + " -- " + App.facebookResponse.Locale;
         }
     }
 }

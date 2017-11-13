@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using UIKit;
 using Xamarin.Auth;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -50,6 +51,19 @@ namespace KLoversApp.iOS.Renderers
 
             done = true;
             PresentViewController(auth.GetUI(), true, null);
+
+            // REVER: TODO ESSE CODIGO ABAIXO FOI COPIADO DO 
+            // http://rasmustc.com/blog/Custom-Facebook-Authentication-with-webapi/
+            // E PRECISA SER AVALIADO SE FUNCIONA E SE VALE A PENA
+            UIViewController vc = auth.GetUI();
+
+            ViewController.AddChildViewController(vc);
+            ViewController.View.Add(vc.View);
+
+            // add out custom cancel button, to be able to navigate back
+            vc.ChildViewControllers[0].NavigationItem.LeftBarButtonItem = new UIBarButtonItem(
+                UIBarButtonSystemItem.Cancel, async (o, eargs) => await App.Current.MainPage.Navigation.PopModalAsync()
+            );
         }
 
         private async Task<FacebookResponse> GetFacebookProfileAsync(string accessToken)

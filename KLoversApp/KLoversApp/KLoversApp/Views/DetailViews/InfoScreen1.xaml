@@ -21,6 +21,8 @@
                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
             
         </RelativeLayout>
+
+        <Label x:Name="lbl_teste" />
     </StackLayout>
     
     

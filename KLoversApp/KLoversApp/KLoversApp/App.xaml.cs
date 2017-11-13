@@ -25,6 +25,8 @@ namespace KLoversApp
         private static Page currentPage;
         private static Timer timer;
 
+        public static FacebookResponse facebookResponse;
+
         public App()
         {
             InitializeComponent();
@@ -184,6 +186,7 @@ namespace KLoversApp
 
         public static void LoginFacebookSuccess(FacebookResponse profile)
         {
+            facebookResponse = profile;
             Current.MainPage = new Views.Menu.MainPage();
         }
 

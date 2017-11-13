@@ -44,7 +44,7 @@ namespace KLoversApp.Droid.Renderers
 
         async Task<FacebookResponse> GetFacebookProfileAsync(string accessToken)
         {
-            var requestUrl = "https://graph.facebook.com/v2.8/me/?fields=" +
+            var requestUrl = "https://graph.facebook.com/v2.10/me/?fields=" +
                 "name,picture.width(999),cover,age_range,devices,email," +
                 "gender,is_verified,birthday,languages,work,website," +
                 "religion,location,locale,link,first_name,last_name," +
