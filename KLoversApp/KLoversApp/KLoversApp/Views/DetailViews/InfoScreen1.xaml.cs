@@ -16,20 +16,46 @@ namespace KLoversApp.Views.DetailViews
         {
             InitializeComponent();
             Init();
+            btn_teste.Clicked += Btn_teste_ClickedAsync;
+        }
+
+        private async void Btn_teste_ClickedAsync(object sender, EventArgs e)
+        {
+            waitActivityIndicator.IsRunning = true;
+            try
+            {
+                Models.Token tk = await App.RestService.LoginProvisorio(App.facebookResponse.Id);
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Erro", ex.ToString(), "Aceitar");
+                activitySpinner.IsVisible = false;
+                activitySpinner.IsRunning = false;
+            }
+
+            waitActivityIndicator.IsRunning = false;
+
         }
 
         private void Init()
         {
+            activitySpinner.IsRunning = true;
             activitySpinner.IsVisible = true;
 
-            lbl_teste.Text = App.facebookResponse.FirstName
-                + " -- " + App.facebookResponse.Gender
-                + " -- " + App.facebookResponse.Cover.Id
-                + " -- " + App.facebookResponse.Cover.OffsetY
-                + " -- " + App.facebookResponse.Devices
-                + " -- " + App.facebookResponse.AgeRange
-                + " -- " + App.facebookResponse.Name
-                + " -- " + App.facebookResponse.Locale;
+            if (App.facebookResponse != null)
+            {
+                lbl_teste.Text = App.facebookResponse.FirstName
+                    + " -- " + App.facebookResponse.Gender
+                    + " -- " + App.facebookResponse.Cover.Id
+                    + " -- " + App.facebookResponse.Cover.OffsetY
+                    + " -- " + App.facebookResponse.Devices
+                    + " -- " + App.facebookResponse.AgeRange
+                    + " -- " + App.facebookResponse.Name
+                    + " -- " + App.facebookResponse.Locale;
+            }
+
+            activitySpinner.IsVisible = false;
+            activitySpinner.IsRunning = false;
         }
     }
 }

@@ -16,8 +16,9 @@ namespace KLoversApp.Models
 
         public static int LoginIconHeight = 120;
 
+        public static string HttpClientBaseAddress = "http://localhost:50340";
         // -------------Login-------------
-        public static string LoginUril = "http://localhost:50340/api/AppUser/AddAppUser/";
+        public static string LoginUrl = "/api/AppUser/AddAppUser/";
 
         public static string NoInternetText = "No Internet, please reconnect.";
 

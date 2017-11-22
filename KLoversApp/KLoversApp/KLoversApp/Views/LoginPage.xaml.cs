@@ -46,6 +46,7 @@ namespace KLoversApp.Views
                 // TODO: Usar este quando o web api estiver funcionando retornando um token
                 //Token tokenResult = await App.RestService.Login(user);
                 Token tokenResult = new Token();
+
                 await DisplayAlert("Login", "Login Success", "Oke");
 
                 if (App.SettingsDatabase.GetSettings() == null)
@@ -65,11 +66,11 @@ namespace KLoversApp.Views
 
                     if (Device.OS == TargetPlatform.Android)
                     {
-                        Application.Current.MainPage = new Menu.MainPage();
+                        Application.Current.MainPage = new MainPage();
                     }
                     else if (Device.OS == TargetPlatform.iOS)
                     {
-                        await Navigation.PushModalAsync(new Menu.MainPage());
+                        await Navigation.PushModalAsync(new MainPage());
                     }
                 }
             }
